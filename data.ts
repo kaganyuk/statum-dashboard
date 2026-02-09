@@ -37,7 +37,7 @@ export const trendData = [
     cr: 27.36,
     rr: 19.00,
     scheduled: 10,
-    conducted: 9,
+    conducted: 7,
     sent: 497,
     accepted: 136,
     messages: 175
@@ -52,14 +52,25 @@ export const trendData = [
     accepted: 228,
     messages: 339
   },
+  {
+    week: 'Week 6',
+    cr: 28.89,
+    rr: 21.00,
+    scheduled: 25,
+    conducted: 4,
+    sent: 1066,
+    accepted: 308,
+    messages: 460
+  },
 ];
 
 export const weeklyData: WeeklyMetric[] = [
   { week: 'Week 1', period: '29-4 jan 2026', sent: 295, accepted: 93, cr: 31.53, messages: 110, replies: 28, rr: 25.45, scheduled: 0, conducted: 1, comment: 'была назначена на прошлой неделе' },
   { week: 'Week 2', period: '5-11 jan 2026', sent: 430, accepted: 132, cr: 30.70, messages: 170, replies: 38, rr: 22.35, scheduled: 5, conducted: 1 },
   { week: 'Week 3', period: '12-18 jan 2026', sent: 557, accepted: 149, cr: 26.75, messages: 231, replies: 53, rr: 23.00, scheduled: 7, conducted: 7 },
-  { week: 'Week 4', period: '19-25 jan 2026', sent: 497, accepted: 136, cr: 27.36, messages: 175, replies: 33, rr: 19.00, scheduled: 10, conducted: 9 },
+  { week: 'Week 4', period: '19-25 jan 2026', sent: 497, accepted: 136, cr: 27.36, messages: 175, replies: 33, rr: 19.00, scheduled: 10, conducted: 7 },
   { week: 'Week 5', period: '26 Jan - 1 Feb 2026', sent: 716, accepted: 228, cr: 31.84, messages: 339, replies: 84, rr: 25.00, scheduled: 11, conducted: 7 },
+  { week: 'Week 6', period: '2-8 Feb 2026', sent: 1066, accepted: 308, cr: 28.89, messages: 460, replies: 98, rr: 21.00, scheduled: 25, conducted: 4 },
 ];
 
 export const allCampaigns: Record<string, Campaign[]> = {
@@ -143,7 +154,29 @@ export const allCampaigns: Record<string, Campaign[]> = {
     { id: 'w5-17', name: '28.01 / PBFO / Senior Relationship Managers / Geneva, Zurich, Monaco, Luxembourg, Dubai', status: 'Scale', sent: 14, accepted: 2, cr: '14.3%', messages: 2, replies: 0, rr: '0.0%', scheduled: 0 },
     { id: 'w5-18', name: '28.01 / PBFO / Private Banker, Client Advisor / Geneva, Zurich, Monaco, Luxembourg, Dubai', status: 'Scale', sent: 15, accepted: 2, cr: '13.3%', messages: 1, replies: 1, rr: '100.0%', scheduled: 0 },
     { id: 'w5-19', name: '30.01 / PBFO / executive director / Geneva, Zurich, Monaco, Luxembourg, Dubai--copy', status: 'Scale', sent: 4, accepted: 0, cr: '0.0%', messages: 0, replies: 0, rr: '0.0%', scheduled: 0 },
-  ]
+  ],
+  'Week 6': [
+    { id: 'w6-1', name: '21 nov / exBlackTower', status: 'Kill', sent: 0, accepted: 0, cr: '0.0%', messages: 0, replies: 0, rr: '0.0%', scheduled: 0 },
+    { id: 'w6-2', name: 'retarget /21 nov / exBlackTower', status: 'Scale', sent: 21, accepted: 1, cr: '4.8%', messages: 0, replies: 0, rr: '0.0%', scheduled: 0 },
+    { id: 'w6-3', name: '21.10 - Ex-employees of Sberbank, VTB, Alfa-Bank, Gazprombank, Otkritie - formal vs. familiar tone and opinion query vs. direct call offer', status: 'Scale', sent: 79, accepted: 31, cr: '39.2%', messages: 48, replies: 8, rr: '16.7%', scheduled: 2 },
+    { id: 'w6-4', name: 'Saudi - Angel/private investors - 9.10 (linkedIn search)', status: 'Kill', sent: 1, accepted: 0, cr: '0.0%', messages: 1, replies: 1, rr: '100.0%', scheduled: 1 },
+    { id: 'w6-5', name: 'Japan - Angel/private investors - 9.10 (linkedIn search)', status: 'Scale', sent: 23, accepted: 4, cr: '17.4%', messages: 12, replies: 2, rr: '16.7%', scheduled: 2 },
+    { id: 'w6-6', name: 'Hong Kong - Angel/private investors - 9.10 (linkedIn search)', status: 'Scale', sent: 89, accepted: 19, cr: '21.3%', messages: 45, replies: 4, rr: '8.9%', scheduled: 4 },
+    { id: 'w6-7', name: 'Singapore - Angel/private investors - 9.10 (linkedIn search)', status: 'Top Performer', sent: 85, accepted: 39, cr: '45.9%', messages: 69, replies: 12, rr: '17.4%', scheduled: 0 },
+    { id: 'w6-8', name: 'UAE - Angel investors - 3.10 (linkedIn search)', status: 'Scale', sent: 85, accepted: 19, cr: '22.4%', messages: 27, replies: 9, rr: '33.3%', scheduled: 1 },
+    { id: 'w6-9', name: 'UAE - Angel investors - 2.10 (Dima\'s base)', status: 'Scale', sent: 49, accepted: 11, cr: '22.4%', messages: 23, replies: 3, rr: '13.0%', scheduled: 1 },
+    { id: 'w6-10', name: 'exDeVereGroup - 19.08', status: 'Scale', sent: 34, accepted: 10, cr: '29.4%', messages: 11, replies: 2, rr: '18.2%', scheduled: 0 },
+    { id: 'w6-11', name: '13.12 / Indonesia - Malaysia / private investors', status: 'Scale', sent: 55, accepted: 10, cr: '18.2%', messages: 8, replies: 3, rr: '37.5%', scheduled: 3 },
+    { id: 'w6-12', name: '13.12 / Qatar, Kuwait, Bahrain / private investors', status: 'Top Performer', sent: 14, accepted: 6, cr: '42.9%', messages: 10, replies: 2, rr: '20.0%', scheduled: 1 },
+    { id: 'w6-13', name: '13.12 /South Africa / private investors', status: 'Scale', sent: 1, accepted: 0, cr: '0.0%', messages: 1, replies: 0, rr: '0.0%', scheduled: 0 },
+    { id: 'w6-14', name: '22.01 / investors CIS / face-to-face meeting', status: 'Scale', sent: 197, accepted: 34, cr: '17.3%', messages: 38, replies: 10, rr: '26.3%', scheduled: 4 },
+    { id: 'w6-15', name: '22.01 / investors Georgia / face-to-face meeting', status: 'Scale', sent: 32, accepted: 9, cr: '28.1%', messages: 27, replies: 7, rr: '25.9%', scheduled: 3 },
+    { id: 'w6-16', name: '22.01 / financial advisors Georgia / face-to-face meeting', status: 'Top Performer', sent: 21, accepted: 9, cr: '42.9%', messages: 30, replies: 11, rr: '36.7%', scheduled: 3 },
+    { id: 'w6-17', name: '22.01 / financial advisors CIS / face-to-face meeting', status: 'Scale', sent: 119, accepted: 47, cr: '39.5%', messages: 39, replies: 5, rr: '12.8%', scheduled: 0 },
+    { id: 'w6-18', name: '28.01 / PBFO / Senior Relationship Managers / Geneva, Zurich, Monaco, Luxembourg, Dubai', status: 'Scale', sent: 45, accepted: 15, cr: '33.3%', messages: 16, replies: 3, rr: '18.8%', scheduled: 0 },
+    { id: 'w6-19', name: '28.01 / PBFO / Private Banker, Client Advisor / Geneva, Zurich, Monaco, Luxembourg, Dubai', status: 'Scale', sent: 47, accepted: 15, cr: '31.9%', messages: 14, replies: 1, rr: '7.1%', scheduled: 0 },
+    { id: 'w6-20', name: '30.01 / PBFO / executive director / Geneva, Zurich, Monaco, Luxembourg, Dubai--copy', status: 'Scale', sent: 69, accepted: 11, cr: '15.9%', messages: 10, replies: 1, rr: '10.0%', scheduled: 0 },
+  ],
 };
 
 export const allAccountMetrics: Record<string, AccountMetric[]> = {
@@ -187,6 +220,17 @@ export const allAccountMetrics: Record<string, AccountMetric[]> = {
     { id: '6', name: 'Chloé Boutiguila', sent: 60, accepted: 9, messages: 7, replies: 2, scheduled: 0, maxSent: 90, efficiency: '67%', activity: 'Средняя активность' },
     { id: '7', name: 'Ruslan Pshenin', sent: 200, accepted: 58, messages: 32, replies: 5, scheduled: 0, maxSent: 125, efficiency: '160%', activity: 'Высокая активность' },
     { id: '8', name: 'Olga Yatchenya', sent: 19, accepted: 4, messages: 3, replies: 1, scheduled: 0, maxSent: 50, efficiency: '38%', activity: 'Средняя активность' },
+  ],
+  'Week 6': [
+    { id: '1', name: 'Igor Smirnov', sent: 189, accepted: 67, messages: 150, replies: 33, scheduled: 7, maxSent: 150, efficiency: '126%', activity: 'Высокая активность' },
+    { id: '2', name: 'Andrey Tsvetkov', sent: 25, accepted: 8, messages: 8, replies: 3, scheduled: 0, maxSent: 0, efficiency: '0%', activity: 'Ограничение' },
+    { id: '3', name: 'Elena Smirnova', sent: 90, accepted: 33, messages: 27, replies: 3, scheduled: 0, maxSent: 100, efficiency: '90%', activity: 'Высокая активность' },
+    { id: '4', name: 'Alexandra Nazarova', sent: 56, accepted: 13, messages: 21, replies: 4, scheduled: 1, maxSent: 75, efficiency: '75%', activity: 'Средняя активность' },
+    { id: '5', name: 'Roman Vashkevich', sent: 192, accepted: 52, messages: 82, replies: 13, scheduled: 6, maxSent: 180, efficiency: '107%', activity: 'Ограничение' },
+    { id: '6', name: 'Chloé Boutiguila', sent: 121, accepted: 40, messages: 37, replies: 8, scheduled: 2, maxSent: 150, efficiency: '81%', activity: 'Высокая активность' },
+    { id: '7', name: 'Ruslan Pshenin', sent: 231, accepted: 58, messages: 102, replies: 32, scheduled: 9, maxSent: 100, efficiency: '231%', activity: 'Высокая активность' },
+    { id: '8', name: 'Olga Yatchenya', sent: 162, accepted: 38, messages: 33, replies: 2, scheduled: 0, maxSent: 90, efficiency: '180%', activity: 'Высокая активность' },
+    { id: '9', name: 'Nikita Napolnikov', sent: 0, accepted: 2, messages: 0, replies: 0, scheduled: 0, maxSent: 0, efficiency: '0%', activity: 'На прогреве' },
   ]
 };
 
@@ -287,39 +331,178 @@ export const leads: Lead[] = [
     linkedin: 'https://linkedin.com/in/ilyaka', comment: '', campaign: '21.10 - Ex-employees of Sberbank...'
   },
   {
-    id: 'w4-l8', weekId: 'Week 4', name: 'Grace Yun Xia', photo: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ61RSsxtUHHh-lCrdqYoAJ0IDvVR8yDXBfKWwV8KoJBKi_VA',
+    id: 'w5-l1', weekId: 'Week 5', name: 'Grace Yun Xia', photo: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ61RSsxtUHHh-lCrdqYoAJ0IDvVR8yDXBfKWwV8KoJBKi_VA',
     company: 'xAI', role: 'Investor', quality: 3, status: 'Встреча состоялась', dateScheduled: '22.01', dateConducted: 'January', account: 'Igor Smirnov',
-    linkedin: 'https://linkedin.com/in/graceyunxia', comment: 'в ожидании', campaign: 'Hong Kong - Angel/private investors - 9.10'
+    linkedin: 'https://linkedin.com/in/graceyunxia', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10'
   },
   {
-    id: 'w4-l9', weekId: 'Week 4', name: 'Chrissy H.', photo: 'https://ui-avatars.com/api/?name=Chrissy+H&background=0D8ABC&color=fff',
+    id: 'w5-l2', weekId: 'Week 5', name: 'Chrissy H.', photo: 'https://ui-avatars.com/api/?name=Chrissy+H&background=0D8ABC&color=fff',
     company: 'Reimagine X Studio', role: 'Investor & Founder & Creative Designer', quality: 4, status: 'Встреча состоялась', dateScheduled: '22.01', dateConducted: 'January', account: 'Roman Vashkevich',
-    linkedin: 'https://linkedin.com/in/chrissy-huang', comment: 'в ожидании', campaign: 'Hong Kong - Angel/private investors - 9.10'
+    linkedin: 'https://linkedin.com/in/chrissy-huang', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10'
   },
   {
-    id: 'w4-l10', weekId: 'Week 4', name: 'Anwar Al-Yahya', photo: 'https://ui-avatars.com/api/?name=Anwar+Al-Yahya&background=0D8ABC&color=fff',
+    id: 'w5-l3', weekId: 'Week 5', name: 'Anwar Al-Yahya', photo: 'https://ui-avatars.com/api/?name=Anwar+Al-Yahya&background=0D8ABC&color=fff',
     company: 'Kuwait Finance House', role: 'Executive Manager', quality: 3, status: 'Встреча состоялась', dateScheduled: '23.01', dateConducted: 'January', account: 'Elena Smirnova',
-    linkedin: 'https://linkedin.com/in/anwar-hamad-al-yahya-80122826', comment: 'в ожидании', campaign: '13.12 / Qatar, Kuwait, Bahrain'
+    linkedin: 'https://linkedin.com/in/anwar-hamad-al-yahya-80122826', comment: '', campaign: '13.12 / Qatar, Kuwait, Bahrain'
   },
-
   {
     id: 'w5-l4', weekId: 'Week 5', name: 'Yulia Yakir', photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEF3P4z_8b-5Q/profile-displayphoto-crop_800_800/B4DZmC3KllHYAI-/0/1758837124280?e=1771459200&v=beta&t=sVNHTK9oDQE8XYKosiFUk_Vp2t9ACtxYN1ZAsJ51q1g',
-    company: 'UBS', role: 'Director, Senior Credit Officer', quality: 2, status: 'Встреча состоялась', dateScheduled: '27.01', account: 'Igor Smirnov',
+    company: 'UBS', role: 'Director, Senior Credit Officer', quality: 2, status: 'Встреча состоялась', dateScheduled: '27.01', dateConducted: 'January', account: 'Igor Smirnov',
     linkedin: 'https://linkedin.com/in/yulia-yakir-28239322', comment: '', campaign: '21.10 - Ex-employees of Sberbank...'
   },
   {
     id: 'w5-l5', weekId: 'Week 5', name: 'Stanislav Krasov', photo: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSw57laF1yEnrlmOIOZOQfYQYaC_bOShWHyIqScz8E4y_Agfg',
-    company: 'SALIC', role: 'Investment (M&A) Director', quality: 1, status: 'Встреча состоялась', dateScheduled: '27.01', account: 'Igor Smirnov',
+    company: 'SALIC', role: 'Investment (M&A) Director', quality: 1, status: 'Встреча состоялась', dateScheduled: '27.01', dateConducted: 'January', account: 'Igor Smirnov',
     linkedin: 'https://linkedin.com/in/stanislavkrasov', comment: '', campaign: '21.10 - Ex-employees of Sberbank...'
   },
   {
     id: 'w5-l6', weekId: 'Week 5', name: 'Denis Kornyukhov', photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEeEHWBZ39SsQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723494903949?e=1771459200&v=beta&t=tQZg1SFe9gu_AM-4S-6_X2kGvbXFXOcGFvVWvTGMgUc',
-    company: 'VTB', role: 'Quantitative Researcher', quality: 3, status: 'Встреча состоялась', dateScheduled: '28.01', account: 'Igor Smirnov',
+    company: 'VTB', role: 'Quantitative Researcher', quality: 3, status: 'Встреча состоялась', dateScheduled: '28.01', dateConducted: 'January', account: 'Igor Smirnov',
     linkedin: 'https://linkedin.com/in/hornyhov', comment: '', campaign: '21.10 - Ex-employees of Sberbank...'
   },
   {
     id: 'w5-l7', weekId: 'Week 5', name: 'Bradley Bester', photo: 'https://media.licdn.com/dms/image/v2/D5603AQG1DO2BeF0NiA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731030341601?e=1771459200&v=beta&t=cnlMV05ucWFpx7omVdz4lQZUqvRGQCT7w0x8rqcw4no',
-    company: 'Fiera Capital (Asia)', role: 'Director of Investor Relations', quality: 3, status: 'Встреча состоялась', dateScheduled: '29.01', account: 'Igor Smirnov',
+    company: 'Fiera Capital (Asia)', role: 'Director of Investor Relations', quality: 3, status: 'Встреча состоялась', dateScheduled: '29.01', dateConducted: 'January', account: 'Igor Smirnov',
     linkedin: 'https://linkedin.com/in/bradley-bester-cfa', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10'
+  }
+  , {
+    id: 'w6-l1', weekId: 'Week 6', name: 'Talha A.', photo: 'https://ui-avatars.com/api/?name=Talha+A&background=0D8ABC&color=fff',
+    company: 'Self-Employed', role: 'Crypto investor and blockchain data analyst', quality: 2, status: 'Встреча состоялась', dateScheduled: '27.01', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/talha-a-aab136bb', comment: '', campaign: '13.12 / Qatar, Kuwait, Bahrain / private investors'
+  },
+  {
+    id: 'w6-l2', weekId: 'Week 6', name: 'Maté Z.', photo: 'https://media.licdn.com/dms/image/v2/D5603AQEfHZ0MT_5eQA/profile-displayphoto-crop_800_800/B56Znj7KNcI8AI-/0/1760465560739?e=1771459200&v=beta&t=DwD99a5o8cdZlFtRLdlbdEH5xBQ1zgPlImSmr86Z6W4',
+    company: 'Various Startups', role: 'Startup Advisor | Angel Investor', quality: 4, status: 'Встреча состоялась', dateScheduled: '29.01', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/matezgombic', comment: '', campaign: 'UAE - Angel investors - 2.10 (Dima\'s base)'
+  },
+  {
+    id: 'w6-l3', weekId: 'Week 6', name: 'Ayla Mironova', photo: 'https://media.licdn.com/dms/image/v2/D4E03AQGTtXzEjgs3AA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1700167090395?e=1771459200&v=beta&t=rWM6MtwSW9a4PDVOtAg7e4c7UAB-LH1ZBA7wdBkQdJc',
+    company: 'AI-Bridge/Below Technologies', role: 'Chief Financial Officer, CBDO', quality: 3, status: 'Встреча состоялась', dateScheduled: '30.01', dateConducted: 'February', account: 'Alexandra Nazarova',
+    linkedin: 'https://linkedin.com/in/aylamironova', comment: '', campaign: '21.10 - Ex-employees of Sberbank...'
+  },
+  {
+    id: 'w6-l4', weekId: 'Week 6', name: 'Matthew Baum', photo: 'https://media.licdn.com/dms/image/v2/D5603AQEoeT3_LNAZXA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1691107914680?e=1772064000&v=beta&t=5-0_9lUwwX0D9KwGQtMuJt5GNydXRZvTQD385x6N79s',
+    company: 'CBC Group', role: 'Associate - Investor Relations', quality: 2, status: 'Встреча состоялась', dateScheduled: '02.02', dateConducted: 'February', account: 'Roman Vashkevich',
+    linkedin: 'https://linkedin.com/in/matthew-baum-972354150', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10'
+  },
+  {
+    id: 'w6-l5', weekId: 'Week 6', name: 'Angeline Siow', photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTFqX8gBzk1adE8lOOA_UyzdECmIhythMgkiXzPL8lNRfV3fg',
+    company: 'Grasshopper', role: 'Investor Relations Associate', quality: 2, status: 'Запланирована', dateScheduled: '02.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/angeline-siow-139a521b8', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l6', weekId: 'Week 6', name: 'Carly Bunni', photo: 'https://media.licdn.com/dms/image/v2/D4D03AQHOlQvD7xLJUw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724582255103?e=1772064000&v=beta&t=AKH7SIRqWwcfrvS7j0nfIJOFi0_YgwolnmcUX6ovYUY',
+    company: 'Ardian', role: 'Investor Relations', quality: 2, status: 'Запланирована', dateScheduled: '02.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/carly-bunni-0845a9211', comment: '', campaign: 'UAE - Angel investors - 3.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l7', weekId: 'Week 6', name: 'Zehan Teoh', photo: 'https://media.licdn.com/dms/image/v2/D5603AQEMviLy__6crA/profile-displayphoto-crop_800_800/B56ZvAyUIxIoAI-/0/1768465977926?e=1772064000&v=beta&t=RAeeqlVs0-FHAYCaCIcg17gGBScG0kf5VDuGvlbg1yQ',
+    company: 'Finsall Resources', role: 'Angel Investor', quality: 2, status: 'Запланирована', dateScheduled: '02.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/zehant', comment: '', campaign: '13.12 / Indonesia - Malaysia / private investors'
+  },
+  {
+    id: 'w6-l8', weekId: 'Week 6', name: 'Jon I. Bergsteinsson', photo: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcROueDnNKLdIxijzE9Y8BrIVbSBq1F5F83Ws9eSdwTB4DHNeA',
+    company: 'Stealth Mode', role: 'Voice of MedTech | Industry Truth-Teller | MP @ LIFA.VC | Chair of IceBAN', quality: 2, status: 'отмена', dateScheduled: '02.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/joningib', comment: '', campaign: "UAE - Angel investors - 2.10 (Dima's base)"
+  },
+  {
+    id: 'w6-l9', weekId: 'Week 6', name: 'Ali Janahi', photo: 'https://media.licdn.com/dms/image/v2/D4E03AQEkMtPzj_-1Hw/profile-displayphoto-shrink_800_800/B4EZVGdc0tHUAc-/0/1740643881957?e=1772064000&v=beta&t=f1d0QxNdGgjQ_XwBRE1buRGG4waWbWU0hoV9BL-YeY0',
+    company: 'National Bank of Bahrain', role: 'Head of Wealth Management', quality: 2, status: 'Запланирована', dateScheduled: '03.02', dateConducted: 'February', account: 'Chloé Boutiguila',
+    linkedin: 'https://linkedin.com/in/ali-janahi-557719188', comment: '', campaign: '13.12 / Qatar, Kuwait, Bahrain / private investors'
+  },
+  {
+    id: 'w6-l10', weekId: 'Week 6', name: 'Ryan Othman', photo: 'https://media.licdn.com/dms/image/v2/D5603AQGHQid2zbhqag/profile-displayphoto-crop_800_800/B56ZkAPPJvHkAU-/0/1756645619115?e=1772064000&v=beta&t=OZuMT4azujI1wdm9R_9G6vnq70F_cI69ErcOCjPKzME',
+    company: 'MNO Partners', role: 'Founding Partner - Real Estate Development', quality: 2, status: 'не отвечает', dateScheduled: '03.02', dateConducted: 'February', account: 'Alexandra Nazarova',
+    linkedin: 'https://linkedin.com/in/ryan-othman', comment: '', campaign: 'Saudi - Angel/private investors - 9.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l11', weekId: 'Week 6', name: 'Talifa Isgandar', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7aK6EnNxNedQWzX8_USInIQ4Qp2S2lYdwVB62BRPKa3TeLw',
+    company: 'SABAH.HUB', role: 'Board Member', quality: 2, status: 'личная встреча', dateScheduled: '04.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/talifa-isgandar-459910192', comment: '', campaign: '22.01 / investors CIS / face-to-face meeting'
+  },
+  {
+    id: 'w6-l12', weekId: 'Week 6', name: 'David Tushishvili', photo: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS9VwhVaP9ANe88CNF0wcoh69hGGpu4VJ83OuC4UhoM3SsNMw',
+    company: 'Blockberg', role: 'Advisory Board Member', quality: 2, status: 'личная встреча', dateScheduled: '04.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/davidtushishvili', comment: '', campaign: '22.01 / investors Georgia / face-to-face meeting'
+  },
+  {
+    id: 'w6-l13', weekId: 'Week 6', name: 'Tornike Revishvili', photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRWlaFeJhOKencYhjTt31rKx8SiaDpfjaXXFzRIMq2Iscm3NA',
+    company: 'Skyward Solutions', role: 'Chief Operating Officer', quality: 2, status: 'личная встреча', dateScheduled: '04.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/tornike-revishvili-a28b7899', comment: '', campaign: '22.01 / financial advisors Georgia / face-to-face meeting--copy'
+  },
+  {
+    id: 'w6-l14', weekId: 'Week 6', name: 'Shin Ito', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTogcrMFc-w0oYCaXYQmxziTyx1UjEJrIMxopWRJ2rEX-TQHQ',
+    company: 'iKoyoo, Inc.', role: 'Founder, CEO & Representative Director', quality: 2, status: 'Запланирована', dateScheduled: '04.02', dateConducted: 'February', account: 'Roman Vashkevich',
+    linkedin: 'https://linkedin.com/in/shinito123', comment: '', campaign: 'Japan - Angel/private investors - 9.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l15', weekId: 'Week 6', name: 'Mikha Tamasidze', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRdpg2x_qhLT_rNR7JsKadLTGTUMuFW00-zzuJfgDKiJiA-uw',
+    company: 'Anko', role: 'Chief Financial Officer', quality: 2, status: 'личная встреча', dateScheduled: '04.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/mikha-tamasidze-924191182', comment: '', campaign: '22.01 / financial advisors Georgia / face-to-face meeting--copy'
+  },
+  {
+    id: 'w6-l16', weekId: 'Week 6', name: 'Vahagn Mughnetsyan', photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQdwku6KO0LmgSOA6eHUaQliimgtQBS9geoWISvdIVRwwwEqg',
+    company: 'Enterprise Armenia', role: 'Head of Investor Support and Aftercare Service Department', quality: 2, status: 'личная встреча', dateScheduled: '05.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/vahagnmughnetsyan', comment: '', campaign: '22.01 / investors CIS / face-to-face meeting'
+  },
+  {
+    id: 'w6-l17', weekId: 'Week 6', name: 'Nikoloz Alavidze', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS1G-E5PFRN-tJqeBJm1od-Zthn7HdWuRGFFJjLR8dLwAMW9w',
+    company: 'Impact Fund Actio', role: 'Actio Impact Fund Impact investor', quality: 2, status: 'личная встреча', dateScheduled: '05.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/nikoloz-alavidze-85629843', comment: '', campaign: '22.01 / investors Georgia / face-to-face meeting'
+  },
+  {
+    id: 'w6-l18', weekId: 'Week 6', name: 'Ari Arjoto', photo: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcReDstNPsz7R1DtlTfw9xHdX7HvLK8jumRoUrap6_RhENnfeA',
+    company: 'Nusa teknogra indonesia', role: 'Private Investor', quality: 2, status: 'Запланирована', dateScheduled: '05.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/ari-yohan-arjoto-3b3396395', comment: '', campaign: '13.12 / Indonesia - Malaysia / private investors'
+  },
+  {
+    id: 'w6-l19', weekId: 'Week 6', name: 'Pradipta Mullick', photo: 'https://media.licdn.com/dms/image/v2/C5603AQFEGDl9YaNF4A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1632818586180?e=1772064000&v=beta&t=t6msaKECm9jdym_LkC6gp6Ad8xdHfpuJKlnZ8tn5-mw',
+    company: 'Intertran Technology', role: 'COO, Managing Director', quality: 2, status: 'Запланирована', dateScheduled: '05.02', dateConducted: 'February', account: 'Chloé Boutiguila',
+    linkedin: 'https://linkedin.com/in/pradiptamullick', comment: '', campaign: 'Japan - Angel/private investors - 9.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l20', weekId: 'Week 6', name: 'Brenda Ng', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS_0nWCKEjtyrfT26j6cPYt1BgAp_lMLuYSkKR8-vonZGOn8w',
+    company: "The Facilitators' Project", role: 'Chief Fun(d) Officer (CFO)', quality: 2, status: 'Запланирована', dateScheduled: '05.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/brenda-ng-3b391922', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l21', weekId: 'Week 6', name: 'Giorgi Kasradze', photo: 'https://media.licdn.com/dms/image/v2/D4D03AQGt--M7VWu9tg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1679464564799?e=1772064000&v=beta&t=4XMunX4dKBCsL9JV3pk0MeFGWnXl6B6_Y51h4HisPu4',
+    company: 'ELT Building', role: 'CEO @ ELT Building | MBA, Corporate Finance', quality: 2, status: 'Запланирована', dateScheduled: '05.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/giorgi-kasradze-7627244', comment: '', campaign: '22.01 / financial advisors Georgia / face-to-face meeting--copy'
+  },
+  {
+    id: 'w6-l22', weekId: 'Week 6', name: 'Zhibek Karamanova', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSebXF1Ew34dzcwESQRERI-yGTVm12G8qaXhV_6Bu9McvhsmA',
+    company: 'Keremet Real Estate LLP', role: 'Founder', quality: 2, status: 'личная встреча', dateScheduled: '05.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/zhibek-karamanova-6768a05', comment: '', campaign: '22.01 / investors CIS / face-to-face meeting'
+  },
+  {
+    id: 'w6-l23', weekId: 'Week 6', name: 'Georgy Grib', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXEOpluWg98eaL7061pVkXPPcAbtKzOokuWUVBfS73xygxTA',
+    company: 'Tech Horizons Venture', role: 'Venture Studio Consultant', quality: 2, status: 'Запланирована', dateScheduled: '06.02', dateConducted: 'February', account: 'Ruslan Pshenin',
+    linkedin: 'https://linkedin.com/in/georgy-grib-187b884', comment: '', campaign: '22.01 / investors CIS / face-to-face meeting'
+  },
+  {
+    id: 'w6-l24', weekId: 'Week 6', name: 'Karan Pawani', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTTstw2PaWXdq0J9a0C2fw3qRqE6FqzuhaBL5Qt3Z4V5Uz1DQ',
+    company: 'Silverdale Capital Pte Ltd', role: 'Investor Relations Associate', quality: 2, status: 'Запланирована', dateScheduled: '06.02', dateConducted: 'February', account: 'Roman Vashkevich',
+    linkedin: 'https://linkedin.com/in/karan-pawani', comment: '', campaign: 'Hong Kong - Angel/private investors - 9.10 (linkedIn search)'
+  },
+  {
+    id: 'w6-l25', weekId: 'Week 6', name: 'Any Widjaja', photo: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSUvsah25ecpKMnXblo3M822AAoVTj_YrQidNG2OzHMi6POgQ',
+    company: 'Festive Fields Entertainment', role: 'Investor', quality: 2, status: 'Запланирована', dateScheduled: '06.02', dateConducted: 'February', account: 'Roman Vashkevich',
+    linkedin: 'https://linkedin.com/in/any-luvena-widjaja-33220a269', comment: '', campaign: '13.12 / Indonesia - Malaysia / private investors'
+  },
+  {
+    id: 'w6-l26', weekId: 'Week 6', name: 'Konstantin Shevchenko', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu55J9UAJKvYGC7RtuiW_5HBCLxyEHLNMqOmymTScwxoe7ZQ',
+    company: '"Waterfall View" LLC', role: "Owner's Representative (Land Sale & Development)", quality: 2, status: 'личная встреча', dateScheduled: '06.02', dateConducted: 'February', account: 'Roman Vashkevich',
+    linkedin: 'https://linkedin.com/in/konstantin-shevchenko-77351b31', comment: '', campaign: '22.01 / investors Georgia / face-to-face meeting'
+  },
+  {
+    id: 'w6-l27', weekId: 'Week 6', name: 'Evgenia Zarubin', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTvd8G55m3eY9ocqKlQo557_NMN4p73ExknvDDte5N3V4bTzw',
+    company: 'Core Realty Accosiates Inc', role: 'номер передан Саше', quality: 2, status: 'Запланирована', dateScheduled: '06.02', dateConducted: 'February', account: 'Igor Smirnov',
+    linkedin: 'https://linkedin.com/in/evgenia-zarubin', comment: '', campaign: '21.10 - Ex-employees of Sberbank, VTB, Alfa-Bank, Gazprombank, Otkritie...'
+  },
+  {
+    id: 'w6-l28', weekId: 'Week 6', name: 'Maria Erokhina', photo: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRXAKiT50wgYMuR34M6aFPXPzlOuvCwYJjuP4mUpDZoF7O-TQ',
+    company: 'JSC Sberbank', role: 'Executive Director, Project manager', quality: 2, status: 'Запланирована', dateScheduled: '06.02', dateConducted: 'February', account: 'Roman Vashkevich',
+    linkedin: 'https://linkedin.com/in/maria-erokhina-850303345', comment: '', campaign: '21.10 - Ex-employees of Sberbank, VTB, Alfa-Bank, Gazprombank, Otkritie...'
   }
 ];

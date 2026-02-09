@@ -527,6 +527,38 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
           }
         ]
       };
+    } else if (selectedWeekId === 'Week 6') {
+      return {
+        insightsTitle: 'ИНСАЙТЫ WEEK 6',
+        insights: [
+          {
+            title: 'ЭФФЕКТИВНОСТЬ:',
+            text: 'Рекордный объем аутрича (1066 запросов) при сохранении стабильного Connection Rate (~29%). Кампания "Singapore" лидирует с CR 42.1%.',
+            icon: TrendIcon,
+            iconColor: 'text-emerald-500'
+          },
+          {
+            title: 'АКТИВНОСТЬ:',
+            text: 'Igor Smirnov показал выдающуюся эффективность (126%), перевыполнив план по отправкам и назначив 7 встреч.',
+            icon: '🔥'
+          }
+        ],
+        focusTitle: 'ФОКУС НА WEEK 7',
+        focus: [
+          {
+            title: 'КОНВЕРСИЯ:',
+            text: 'Фокус на обработке 308 новых коннектов и 98 ответов. Основная цель — увеличить количество назначенных встреч до 30+.',
+            icon: Target,
+            iconColor: 'text-red-600'
+          },
+          {
+            title: 'МАСШТАБИРОВАНИЕ:',
+            text: 'Запуск новых кампаний по направлению "Family Offices & HNWIs" и расширение географии на Латинскую Америку.',
+            icon: BarChart2,
+            iconColor: 'text-blue-600'
+          }
+        ]
+      };
     } else if (selectedWeekId === 'Summary') {
       return null;
     } else {
@@ -849,7 +881,7 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
 
         {/* Insights Section - Only render if dynamicContent exists */}
         {dynamicContent && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 mb-12">
             {/* Insights */}
             <div className="bg-white rounded-[24px] p-8 shadow-sm border border-slate-100/50 relative overflow-hidden group hover:shadow-md transition-all duration-300">
               <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full blur-3xl -mr-32 -mt-32 transition-all duration-500 group-hover:bg-slate-100/80"></div>
