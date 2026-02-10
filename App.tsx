@@ -116,7 +116,7 @@ const TrendChartCard = ({ title, dataKey, color, icon: Icon, showGuide = false }
               domain={[0, 'auto']}
             />
             <Tooltip content={<CustomTrendTooltip />} cursor={{ stroke: color, strokeWidth: 1, strokeDasharray: '4 4' }} />
-            {showGuide && <ReferenceLine x="Week 4" stroke={color} strokeDasharray="3 3" />}
+            {showGuide && <ReferenceLine x="Week 6" stroke={color} strokeDasharray="3 3" />}
             <Area
               type="monotone"
               dataKey={dataKey}
@@ -272,7 +272,7 @@ const LoginPage = ({ onLogin }: { onLogin: (u: string, p: string) => void }) => 
             </div>
             <div className="flex items-center gap-2 text-slate-400">
               <Globe size={14} />
-              <span className="text-[10px] font-bold uppercase tracking-wider">v2.4.0</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider">v2.5.0</span>
             </div>
           </div>
         </div>
@@ -286,7 +286,7 @@ const LoginPage = ({ onLogin }: { onLogin: (u: string, p: string) => void }) => 
 };
 
 const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
-  const [selectedWeekId, setSelectedWeekId] = useState('Week 4');
+  const [selectedWeekId, setSelectedWeekId] = useState(weeklyData[weeklyData.length - 1].week);
   const [showDropdown, setShowDropdown] = useState(false);
 
   const currentMetric = useMemo(() => {
