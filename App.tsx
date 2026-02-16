@@ -4,7 +4,7 @@ import {
   TrendingUp, Rocket, Star, ExternalLink, Zap, Activity,
   ChevronDown, Linkedin, MoreHorizontal, ArrowUpRight,
   TrendingUp as TrendIcon, Zap as ZapIcon, Target, BarChart2,
-  Lock, User, LogIn, ShieldCheck, Globe
+  Lock, User, LogIn, ShieldCheck, Globe, MapPin
 } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -285,10 +285,85 @@ const LoginPage = ({ onLogin }: { onLogin: (u: string, p: string) => void }) => 
   );
 };
 
+const GlobalMarkets = () => {
+  const markets = [
+    { name: 'Europe', type: 'primary', icon: Globe },
+    { name: 'Brazil', type: 'primary', icon: MapPin },
+    { name: 'India', type: 'primary', icon: MapPin },
+    { name: 'Australia', type: 'secondary', icon: Globe },
+    { name: 'South Africa', type: 'secondary', icon: MapPin },
+    { name: 'Argentina', type: 'secondary', icon: MapPin },
+  ];
+
+  return (
+    <div className="mt-24 mb-24 animate-in fade-in slide-in-from-bottom-8 duration-700">
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-sm border border-emerald-100">
+          <Globe size={14} />
+          Global Reach
+        </div>
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-6 uppercase italic">
+          Targeting Key Markets <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">Worldwide</span>
+        </h2>
+        <p className="text-slate-500 font-bold max-w-2xl mx-auto text-lg leading-relaxed">
+          We specialize in high-impact outreach across diverse global regions, focusing on markets with the highest potential for your business.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+        {markets.map((market) => (
+          <div
+            key={market.name}
+            className={`
+              relative p-8 rounded-[32px] border transition-all duration-500 flex flex-col items-center text-center group cursor-default
+              ${market.type === 'primary'
+                ? 'bg-white border-emerald-100 shadow-xl shadow-emerald-100/20 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-200/40 z-10'
+                : 'bg-slate-50/50 border-slate-100 hover:bg-white hover:border-blue-100 hover:shadow-lg hover:-translate-y-1'
+              }
+            `}
+          >
+            {market.type === 'primary' && (
+              <div className="absolute top-4 right-4 text-emerald-500">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+              </div>
+            )}
+
+            <div className={`
+              w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm
+              ${market.type === 'primary'
+                ? 'bg-emerald-50 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-emerald-200'
+                : 'bg-white text-slate-400 group-hover:bg-blue-500 group-hover:text-white'
+              }
+            `}>
+              <market.icon size={28} strokeWidth={2.5} />
+            </div>
+
+            <h3 className={`font-black text-lg mb-3 tracking-tight ${market.type === 'primary' ? 'text-slate-800' : 'text-slate-500 group-hover:text-slate-800 transition-colors'}`}>
+              {market.name}
+            </h3>
+
+            {market.type === 'primary' ? (
+              <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-lg">
+                Primary Market
+              </span>
+            ) : (
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider leading-relaxed">
+                Дополнительная опция и наша рекомендация
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
   const [selectedWeekId, setSelectedWeekId] = useState(weeklyData[weeklyData.length - 1].week);
   const [showDropdown, setShowDropdown] = useState(false);
 
+  // ... previous logic ...
   const currentMetric = useMemo(() => {
     if (selectedWeekId === 'Summary') {
       const totals = weeklyData.reduce((acc, curr) => ({
@@ -324,7 +399,6 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
         agg[c.name].messages += c.messages;
         agg[c.name].replies += c.replies;
         agg[c.name].scheduled = (agg[c.name].scheduled || 0) + (c.scheduled || 0);
-        // Update status to latest if needed, or keep latest found
         agg[c.name].status = c.status;
       });
 
@@ -349,13 +423,11 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
         agg[a.name].messages += a.messages;
         agg[a.name].replies += a.replies;
         agg[a.name].scheduled += a.scheduled;
-        // Keep latest activity/status
         agg[a.name].activity = a.activity;
       });
-      console.log('AGG', agg);
       return Object.values(agg).map(a => ({
         ...a,
-        efficiency: 'N/A' // Hard to aggregate percentage efficiency meaninglessly
+        efficiency: 'N/A'
       }));
     }
     return allAccountMetrics[selectedWeekId] || [];
@@ -363,7 +435,7 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
 
   const currentLeads = useMemo(() => {
     if (selectedWeekId === 'Summary') {
-      return leads.filter(l => l.status === 'Встреча состоялась');
+      return leads;
     }
     return leads.filter(l => l.weekId === selectedWeekId);
   }, [selectedWeekId]);
@@ -372,10 +444,8 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
     if (selectedWeekId === 'Summary') return { sent: undefined, accepted: undefined, replies: undefined, scheduled: undefined, conducted: undefined };
     if (!selectedWeekId || !weeklyData.length) return { sent: undefined, accepted: undefined, replies: undefined, scheduled: undefined, conducted: undefined };
 
-    // Find current index
     const index = weeklyData.findIndex(w => w.week === selectedWeekId);
 
-    // If first week or not found, no comparison
     if (index <= 0) {
       return { sent: undefined, accepted: undefined, replies: undefined, scheduled: undefined, conducted: undefined };
     }
@@ -527,6 +597,38 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
           }
         ]
       };
+    } else if (selectedWeekId === 'Week 5') {
+      return {
+        insightsTitle: 'ИНСАЙТЫ WEEK 5',
+        insights: [
+          {
+            title: 'РЕКОРДНЫЙ РОСТ:',
+            text: 'Объем отправленных запросов вырос на 44% (716 vs 497), количество коннектов на 67% (228 vs 136). Это лучший показатель за все время.',
+            icon: TrendIcon,
+            iconColor: 'text-emerald-500'
+          },
+          {
+            title: 'ЭФФЕКТИВНОСТЬ:',
+            text: 'Connection Rate поднялся до 31.8% несмотря на значительный рост объема. Кампании Singapore (51%) и Qatar (46%) показывают отличные результаты.',
+            icon: '🔥'
+          }
+        ],
+        focusTitle: 'ФОКУС НА WEEK 6',
+        focus: [
+          {
+            title: 'КОНВЕРСИЯ:',
+            text: 'Главная задача — качественно обработать 228 новых контактов и 84 ответа, конвертируя их во встречи. Потенциал базы огромный.',
+            icon: Target,
+            iconColor: 'text-red-600'
+          },
+          {
+            title: 'ОПТИМИЗАЦИЯ:',
+            text: 'Отключение завершенных кампаний (Kill) и перераспределение лимитов текущие кампании.',
+            icon: BarChart2,
+            iconColor: 'text-blue-600'
+          }
+        ]
+      };
     } else if (selectedWeekId === 'Week 6') {
       return {
         insightsTitle: 'ИНСАЙТЫ WEEK 6',
@@ -539,7 +641,7 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
           },
           {
             title: 'АКТИВНОСТЬ:',
-            text: 'Igor Smirnov показал выдающуюся эффективность (126%), перевыполнив план по отправкам и назначив 7 встреч.',
+            text: 'Упор на кампании face-to-face с фокусом на личные встречи для Александра, за текущую неделю назначено 10 офлайн-встреч.',
             icon: '🔥'
           }
         ],
@@ -547,13 +649,45 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
         focus: [
           {
             title: 'КОНВЕРСИЯ:',
-            text: 'Фокус на обработке 308 новых коннектов и 98 ответов. Основная цель — увеличить количество назначенных встреч до 30+.',
+            text: 'Продолжение организации офлайн-встреч. При ограниченном времени у Александра — перевод части офлайн-встреч в онлайн-формат без потери качества коммуникации.',
             icon: Target,
             iconColor: 'text-red-600'
           },
           {
             title: 'МАСШТАБИРОВАНИЕ:',
-            text: 'Запуск новых кампаний по направлению "Family Offices & HNWIs" и расширение географии на Латинскую Америку.',
+            text: 'Запуск ретаргетинга на завершившиеся кампании. Старт новой кампании для Кирилла с определенныи сегментом.',
+            icon: BarChart2,
+            iconColor: 'text-blue-600'
+          }
+        ]
+      };
+    } else if (selectedWeekId === 'Week 7') {
+      return {
+        insightsTitle: 'ИНСАЙТЫ WEEK 7',
+        insights: [
+          {
+            title: 'ВЫСОКАЯ КОНВЕРСИЯ:',
+            text: 'Connection Rate достиг 36.58% (308 коннектов из 842 запросов), что значительно выше среднего показателя.',
+            icon: TrendIcon,
+            iconColor: 'text-emerald-500'
+          },
+          {
+            title: 'РЕЗУЛЬТАТИВНОСТЬ:',
+            text: 'Назначено 15 новых встреч и проведено 10. Кампании по Investors CIS и PBFO показывают стабильный интерес.',
+            icon: '🔥'
+          }
+        ],
+        focusTitle: 'ФОКУС НА WEEK 8',
+        focus: [
+          {
+            title: 'ПОДДЕРЖКА РИТМА:',
+            text: 'Максимальная отработка полученных 124 ответов. Фокус на качественный фоллоу-ап для назначения встреч.',
+            icon: Target,
+            iconColor: 'text-red-600'
+          },
+          {
+            title: 'КАМПАНИИ:',
+            text: 'Масштабирование наиболее успешных направлений (Scale) и плановая остановка неэффективных (Kill).',
             icon: BarChart2,
             iconColor: 'text-blue-600'
           }
@@ -765,13 +899,22 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
                       <div className="flex items-center gap-5">
                         <div className="relative">
                           <img src={lead.photo} className="w-14 h-14 rounded-[20px] object-cover shadow-md border-2 border-white" alt="" />
-                          <div className={`absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full border-[3px] border-white ${lead.status === 'Встреча состоялась' ? 'bg-emerald-500' : 'bg-blue-500'}`}></div>
+                          <div className={`absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full border-[3px] border-white ${(lead.status.toLowerCase() === 'встреча состоялась') ? 'bg-emerald-500' :
+                            (lead.status.toLowerCase() === 'личная встреча') ? 'bg-yellow-400' :
+                              (lead.status.toLowerCase() === 'отмена' || lead.status.toUpperCase() === 'ОТМЕНЕНА') ? 'bg-rose-500' :
+                                (lead.status.toLowerCase() === 'не отвечает' || lead.status.toUpperCase() === 'НЕ ОТВЕЧАЕТ') ? 'bg-amber-500' :
+                                  'bg-blue-500'
+                            }`}></div>
                         </div>
                         <div>
                           <p className="font-black text-slate-800 text-[15px] tracking-tight leading-tight">{lead.name}</p>
-                          <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-md mt-1.5 inline-block ${lead.status === 'Встреча состоялась' ? 'bg-emerald-50 text-emerald-500' : 'bg-blue-50 text-blue-500'
+                          <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-md mt-1.5 inline-block ${(lead.status.toLowerCase() === 'встреча состоялась') ? 'bg-emerald-50 text-emerald-500' :
+                            (lead.status.toLowerCase() === 'личная встреча') ? 'bg-yellow-100 text-yellow-700 border border-yellow-200' :
+                              (lead.status.toLowerCase() === 'отмена' || lead.status.toUpperCase() === 'ОТМЕНЕНА') ? 'bg-rose-50 text-rose-500' :
+                                (lead.status.toLowerCase() === 'не отвечает' || lead.status.toUpperCase() === 'НЕ ОТВЕЧАЕТ') ? 'bg-amber-50 text-amber-500' :
+                                  'bg-blue-50 text-blue-500'
                             }`}>
-                            {lead.status === 'Встреча состоялась' ? 'ВСТРЕЧА СОСТОЯЛАСЬ' : 'ЗАПЛАНИРОВАНА'}
+                            {lead.status.toUpperCase()}
                           </span>
                           {lead.status === 'Встреча состоялась' && lead.quality && (
                             <div className="flex items-center gap-0.5 mt-2">
@@ -834,8 +977,8 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
                   <th className="px-6 py-6">Отправлено</th>
                   <th className="px-6 py-6 text-emerald-600">Коннекты</th>
                   <th className="px-6 py-6 text-blue-600">Назначено</th>
-                  <th className="px-6 py-6">Эффективность</th>
-                  <th className="px-10 py-6">Статус</th>
+                  {selectedWeekId !== 'Summary' && <th className="px-6 py-6">Эффективность</th>}
+                  {selectedWeekId !== 'Summary' && <th className="px-10 py-6">Статус</th>}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
@@ -855,29 +998,36 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
                     </td>
                     <td className="px-6 py-7 text-sm text-slate-500 font-black italic">{acc.accepted}</td>
                     <td className="px-6 py-7 text-base text-blue-600 font-black italic">{acc.scheduled}</td>
-                    <td className="px-6 py-7">
-                      <span className={`text-sm font-black tracking-tighter ${parseInt(acc.efficiency) > 50 ? 'text-emerald-600' : 'text-slate-400'}`}>
-                        {acc.efficiency}
-                      </span>
-                    </td>
-                    <td className="px-10 py-7">
-                      <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 w-fit ${acc.activity === 'Высокая активность' || acc.activity === 'Средняя активность' ? 'bg-emerald-50 text-emerald-600' :
-                        acc.activity === 'Ограничение' ? 'bg-rose-50 text-rose-600' :
-                          acc.activity === 'замена' ? 'bg-violet-50 text-violet-600' : 'bg-amber-50 text-amber-600'
-                        }`}>
-                        <div className={`w-2 h-2 rounded-full ${acc.activity === 'Высокая активность' ? 'bg-emerald-500 animate-pulse' :
-                          acc.activity === 'Ограничение' ? 'bg-rose-500' :
-                            acc.activity === 'замена' ? 'bg-violet-500 animate-pulse' : 'bg-amber-500'
-                          }`}></div>
-                        {acc.activity}
-                      </span>
-                    </td>
+                    {selectedWeekId !== 'Summary' && (
+                      <td className="px-6 py-7">
+                        <span className={`text-sm font-black tracking-tighter ${parseInt(acc.efficiency) > 50 ? 'text-emerald-600' : 'text-slate-400'}`}>
+                          {acc.efficiency}
+                        </span>
+                      </td>
+                    )}
+                    {selectedWeekId !== 'Summary' && (
+                      <td className="px-10 py-7">
+                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 w-fit ${acc.activity === 'Высокая активность' || acc.activity === 'Средняя активность' ? 'bg-emerald-50 text-emerald-600' :
+                          acc.activity === 'Ограничение' ? 'bg-rose-50 text-rose-600' :
+                            acc.activity === 'замена' ? 'bg-violet-50 text-violet-600' : 'bg-amber-50 text-amber-600'
+                          }`}>
+                          <div className={`w-2 h-2 rounded-full ${acc.activity === 'Высокая активность' ? 'bg-emerald-500 animate-pulse' :
+                            acc.activity === 'Ограничение' ? 'bg-rose-500' :
+                              acc.activity === 'замена' ? 'bg-violet-500 animate-pulse' : 'bg-amber-500'
+                            }`}></div>
+                          {acc.activity}
+                        </span>
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </div>
+
+        {/* Global Markets Section */}
+        <GlobalMarkets />
 
         {/* Insights Section - Only render if dynamicContent exists */}
         {dynamicContent && (
