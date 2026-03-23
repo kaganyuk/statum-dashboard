@@ -693,6 +693,38 @@ const DashboardView = ({ onLogout }: { onLogout: () => void }) => {
           }
         ]
       };
+    } else if (selectedWeekId === 'Week 12') {
+      return {
+        insightsTitle: 'ИНСАЙТЫ WEEK 12',
+        insights: [
+          {
+            title: 'РЕКОРДНЫЙ КОННЕКТ:',
+            text: 'Connection Rate вырос до 42.08% (332 коннекта из 789 запросов), что является одним из лучших показателей.',
+            icon: TrendIcon,
+            iconColor: 'text-emerald-500'
+          },
+          {
+            title: 'АКТИВНОСТЬ АККАУНТОВ:',
+            text: 'Высокая эффективность аккаунтов. Alexandra Nazarova (620%) и Elena Smirnova (500%) показывают аномально высокую отдачу при небольших лимитах.',
+            icon: '🔥'
+          }
+        ],
+        focusTitle: 'ФОКУС НА WEEK 13',
+        focus: [
+          {
+            title: 'КОНВЕРСИЯ В ОТВЕТЫ:',
+            text: 'Главный фокус на качественной обработке 332 новых коннектов и 171 полученного ответа. Удержание 22% Reply Rate на новых диалогах.',
+            icon: Target,
+            iconColor: 'text-red-600'
+          },
+          {
+            title: 'ВСТРЕЧИ:',
+            text: 'Доведение назначенных контактов (8 встреч) до проведения и конвертация вовлеченной аудитории в новые созвоны.',
+            icon: BarChart2,
+            iconColor: 'text-blue-600'
+          }
+        ]
+      };
     } else if (selectedWeekId === 'Summary') {
       return null;
     } else {
